@@ -1,0 +1,69 @@
+{
+  "paths": {
+    "src": {
+      "html": "./",
+      "styles": "styles",
+      "fonts": "fonts",
+      "images": "images",
+      "js": "js"
+    },
+    "temp": {
+      "html": ".tmp",
+      "styles": ".tmp/styles",
+      "fonts": ".tmp/fonts",
+      "images": ".tmp/images",
+      "js": ".tmp/js"
+    }
+  },
+
+  "html": {
+    "partials": "/partials"
+  },
+
+  "server": {
+    "host": "http://localhost",
+    "port": 3000
+  },
+
+  "styles": {
+    "src": {
+      "original": "app.styl",
+      "compiled": "app.css",
+      "processor": "stylus"
+    },
+    "plugins": {
+      "autoprefixer": {
+        "browsers": ["last 2 versions", "Explorer > 8"],
+        "cascade": false
+      }
+    }
+  },
+
+  "images": {
+    "src": {
+
+    },
+    "plugins": {
+      "base64": {
+        "src": "/inline",
+        "path": "/includes",
+        "file": "inline.styl",
+        "processor": "stylus"
+      },
+      "sprite": {
+        "src": "/sprite",
+        "spriteName": "elements",
+        "styleName": "sprite.styl",
+        "path": "/includes",
+        "cssPath": "./../images",
+        "processor": "stylus"
+      }
+    }
+  },
+
+  "js": {
+    "src": {
+      "original": "app.js"
+    }
+  }
+}
