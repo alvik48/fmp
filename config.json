@@ -44,19 +44,12 @@
 
     },
     "plugins": {
-      "base64": {
-        "src": "/inline",
-        "path": "/includes",
-        "file": "inline.styl",
-        "processor": "stylus"
-      },
       "sprite": {
         "src": "/sprite",
-        "spriteName": "elements",
+        "spriteName": "elements.png",
         "styleName": "sprite.styl",
         "path": "/includes",
-        "cssPath": "./../images",
-        "processor": "stylus"
+        "cssPath": "./../images/elements.png"
       }
     }
   },

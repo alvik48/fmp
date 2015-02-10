@@ -37,18 +37,21 @@ module.exports = function(userConfig) {
         'browserSync',
         'fonts',
         'sprite',
-        'base64',
         'styles',
         'js',
         'images',
+        'favicon',
         'html'
     ], function () {
-        gulp.watch('fonts/**/*.*', ['fonts']);
-        gulp.watch('styles/**/*.*', ['styles']);
-        gulp.watch('images/sprite/*.*', ['sprite']);
-        gulp.watch('images/inline/*.*', ['base64']);
-        gulp.watch(['images/**/*.*', '!images/sprite/*.*', '!images/inline/*.*'], ['images']);
-        gulp.watch('js/**/*.*', ['js']);
-        gulp.watch(['*.html', 'partials/**/*.html'], ['html']);
+        gulp.watch(config.paths.src.fonts + '/**/*.*', ['fonts']);
+        gulp.watch(config.paths.src.styles + '/**/*.*', ['styles']);
+        gulp.watch(config.paths.src.images + config.images.plugins.sprite.src + '/*.*', ['sprite']);
+        gulp.watch([
+            config.paths.src.images + 'images/**/*.*',
+            '!' + config.paths.src.images + config.images.plugins.sprite.src + '/*.*'
+        ], ['images']);
+        gulp.watch(config.paths.src.js + '/**/*.*', ['js']);
+        gulp.watch(['*.html', config.html.partials + '/**/*.html'], ['html']);
+        gulp.watch('*.png', ['favicon']);
     });
 };

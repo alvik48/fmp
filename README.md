@@ -26,4 +26,4 @@ Preconfigured **node.js + gulp** environment to automate routine markup tasks.
 
 **In progress...**
 
-> Developed by [alvik48](http://vk.com/a_kryuchkov).
+> Developed by [alvik48](http://alvik48.github.io/).

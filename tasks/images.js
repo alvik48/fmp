@@ -9,7 +9,6 @@ module.exports = function(task, config) {
 
     var src = [
         config.paths.src.images + '/**/*.*',
-        '!' + config.paths.src.images + '/' + config.images.plugins.base64.src + '/**/*.*',
         '!' + config.paths.src.images + '/' + config.images.plugins.sprite.src + '/**/*.*'
     ];
     var dest = config.paths.temp.images;
