@@ -1,0 +1,13 @@
+{
+  "name": "fmp-newproject",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "",
+  "preferGlobal": false,
+  "keywords": [],
+  "dependencies": {
+
+  }
+}

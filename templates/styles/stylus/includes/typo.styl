@@ -1,0 +1,135 @@
+/* ==============================================
+    Vars
+============================================== */
+
+/* colors */
+$text-color = $dark-color
+$link-color = $primary-color
+$hover-color = $secondary-color
+
+/* font families */
+$base-font = Roboto, arial, sans-serif
+$alternate-font = arial, sans-serif
+$mono-font = monospace, sans-serif
+
+/* text font sizes */
+$font-size = 16px
+$line-height = 1.6
+
+/* ==============================================
+    Main styles
+============================================== */
+
+html
+  font-size $font-size
+
+body
+  font 1rem/$line-height $base-font
+  color $text-color
+
+pre, code, kbd, samp
+  font-family $mono-font
+
+ol
+  list-style-type decimal
+
+small
+  font-size 85%
+
+strong, b
+  font-weight bold
+
+table
+  width 100%
+
+td, td img
+  vertical-align top
+
+sub
+  vertical-align sub
+  font-size smaller
+
+sup
+  vertical-align super
+  font-size smaller
+
+pre
+  padding 15px
+  white-space pre
+  white-space pre-wrap
+  white-space pre-line
+  word-wrap break-word
+
+::-moz-selection
+  background #09f
+  color #fff
+  text-shadow none
+
+::selection
+  background #09f
+  color #fff
+  text-shadow none
+
+/* ==============================================
+    Links
+============================================== */
+
+a
+  color $link-color
+
+  &:active, &:visited
+    color $link-color
+
+  &:hover
+    color $hover-color
+
+  &:link
+    -webkit-tap-highlight-color $link-color
+
+/* ==============================================
+    Headers
+============================================== */
+
+h1
+  font-size 2.6rem
+  font-weight 500
+  color $text-color
+  margin-bottom 1rem
+
+h2
+  font-size 2.2rem
+  font-weight 500
+  color $text-color
+  margin 1rem 0
+
+h3
+  font-size 1.8rem
+  font-weight 500
+  color $text-color
+  margin 1rem 0
+
+h4
+  font-size 1.4rem
+  font-weight 500
+  color $text-color
+  margin 1rem 0
+
+h5
+  font-size 1.2rem
+  font-weight 500
+  color $text-color
+  margin 1rem 0
+
+h6
+  font-size 1rem
+  font-weight 500
+  color $text-color
+  margin .5rem 0
+
+/* ==============================================
+    Articles styles
+============================================== */
+
+article
+  p, ul, ol, table
+    margin 1rem 0

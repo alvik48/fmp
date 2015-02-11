@@ -1,0 +1,74 @@
+/* ==============================================
+    Vars
+============================================== */
+
+
+
+/* ==============================================
+    Reset & base styles
+============================================== */
+
+select, input, textarea
+  box-sizing border-box
+  font 1rem/$line-height $base-font
+  color $text-color
+
+label, input[type=button], input[type=submit], button
+  cursor pointer
+
+button, input, select, textarea
+  margin 0
+
+textarea
+  overflow auto
+  resize none
+
+input[type=radio]
+  vertical-align text-bottom
+
+input[type=checkbox]
+  vertical-align bottom
+
+button
+  width auto
+  overflow visible
+
+/* ==============================================
+    Forms layout
+============================================== */
+
+.form-item
+  margin-bottom .8rem
+
+  label
+    display inline-block
+    margin-bottom 4px
+
+/* ==============================================
+    Basic elements styles
+============================================== */
+
+input[type=text], input[type=password], textarea, select
+  box-shadow(inset 0 4px 4px rgba(0, 0, 0, .07))
+  background $bg-color
+  width 100%
+  padding .1rem .4rem
+  border 1px solid $dark-color
+
+input[type=text]:focus, input[type=password]:focus, select:focus, textarea:focus
+  border-color $hover-color
+
+input[type=submit], input[type=button], button
+  padding .1rem .4rem
+  border 1px solid $dark-color
+  background $light-color
+
+/* ==============================================
+    Form validation
+============================================== */
+
+.error
+  input, textarea, select,
+  input:focus, textarea:focus, select:focus
+    border-color $error-color
+  

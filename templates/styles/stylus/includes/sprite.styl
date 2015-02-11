@@ -1,0 +1,111 @@
+/*
+Stylus variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon_home_width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon_home = x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet = width height image $spritesheet_sprites;
+*/
+$icon-mail_name = 'icon-mail';
+$icon-mail_x = 0px;
+$icon-mail_y = 0px;
+$icon-mail_offset_x = 0px;
+$icon-mail_offset_y = 0px;
+$icon-mail_width = 24px;
+$icon-mail_height = 24px;
+$icon-mail_total_width = 53px;
+$icon-mail_total_height = 53px;
+$icon-mail_image = './../images/elements.png';
+$icon-mail = 0px 0px 0px 0px 24px 24px 53px 53px './../images/elements.png' 'icon-mail';
+$icon-phone_name = 'icon-phone';
+$icon-phone_x = 29px;
+$icon-phone_y = 0px;
+$icon-phone_offset_x = -29px;
+$icon-phone_offset_y = 0px;
+$icon-phone_width = 24px;
+$icon-phone_height = 24px;
+$icon-phone_total_width = 53px;
+$icon-phone_total_height = 53px;
+$icon-phone_image = './../images/elements.png';
+$icon-phone = 29px 0px -29px 0px 24px 24px 53px 53px './../images/elements.png' 'icon-phone';
+$icon-skype_name = 'icon-skype';
+$icon-skype_x = 0px;
+$icon-skype_y = 29px;
+$icon-skype_offset_x = 0px;
+$icon-skype_offset_y = -29px;
+$icon-skype_width = 24px;
+$icon-skype_height = 24px;
+$icon-skype_total_width = 53px;
+$icon-skype_total_height = 53px;
+$icon-skype_image = './../images/elements.png';
+$icon-skype = 0px 29px 0px -29px 24px 24px 53px 53px './../images/elements.png' 'icon-skype';
+$icon-twitter_name = 'icon-twitter';
+$icon-twitter_x = 29px;
+$icon-twitter_y = 29px;
+$icon-twitter_offset_x = -29px;
+$icon-twitter_offset_y = -29px;
+$icon-twitter_width = 24px;
+$icon-twitter_height = 24px;
+$icon-twitter_total_width = 53px;
+$icon-twitter_total_height = 53px;
+$icon-twitter_image = './../images/elements.png';
+$icon-twitter = 29px 29px -29px -29px 24px 24px 53px 53px './../images/elements.png' 'icon-twitter';
+$spritesheet_width = 53px;
+$spritesheet_height = 53px;
+$spritesheet_image = './../images/elements.png';
+$spritesheet_sprites = $icon-mail $icon-phone $icon-skype $icon-twitter;
+$spritesheet = 53px 53px './../images/elements.png' $spritesheet_sprites;
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  spriteWidth($icon_home)
+}
+
+.icon-email {
+  sprite($icon_email)
+}
+*/
+spriteWidth($sprite) {
+  width: $sprite[4];
+}
+
+spriteHeight($sprite) {
+  height: $sprite[5];
+}
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of Stylus
+
+sprites($spritesheet_sprites);
+*/
+sprites($sprites) {
+  for $sprite in $sprites {
+    $sprite_name = $sprite[9];
+    .{$sprite_name} {
+      sprite($sprite);
+    }
+  }
+}

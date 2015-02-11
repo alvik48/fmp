@@ -1,0 +1,41 @@
+/* ==============================================
+    Import common styles
+============================================== */
+
+@import "includes/fonts"
+@import "includes/mixins"
+@import "includes/vars"
+
+@import "includes/reset"
+@import "includes/sprite"
+@import "includes/helpers"
+@import "includes/typo"
+@import "includes/forms"
+@import "includes/layout"
+
+/* generates icons classes from sprite */
+sprites($spritesheet_sprites)
+
+/* ==============================================
+    Import external plugins styles
+============================================== */
+
+//@import "plugins/*"
+
+/* ==============================================
+    Import partials using in several pages
+============================================== */
+
+@import "partials/*"
+
+/* ==============================================
+    Import components using in several pages
+============================================== */
+
+@import "components/*"
+
+/* ==============================================
+    Import unique pages styles
+============================================== */
+
+@import "pages/*"

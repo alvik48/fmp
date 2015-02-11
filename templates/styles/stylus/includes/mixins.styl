@@ -1,0 +1,70 @@
+/* ==============================================
+    Layout
+============================================== */
+
+border-box()
+  box-sizing border-box
+
+/* ==============================================
+    Box styles
+============================================== */
+
+rounded($radius = 2px)
+  border-radius $radius
+
+border-radius($topright = 0, $bottomright = 0, $bottomleft = 0, $topleft = 0)
+  border-top-right-radius $topright
+  border-bottom-right-radius $bottomright
+  border-bottom-left-radius $bottomleft
+  border-top-left-radius $topleft
+
+/* ==============================================
+    Colors & gradients
+============================================== */
+
+gradient($startColor = #eee, $endColor = white)
+  background linear-gradient(top, $startColor, $endColor)
+
+/* ==============================================
+    Shadows
+============================================== */
+
+box-shadow($arguments = 0 0 5px rgba(0, 0, 0, 25))
+  box-shadow $arguments
+
+text-shadow($arguments = 0 1px 3px rgba(0, 0, 0, 25))
+  text-shadow $arguments
+
+/* ==============================================
+    Animations
+============================================== */
+
+animation($name, $duration = 300ms, $delay = 0, $ease = ease)
+  animation $name $duration $delay $ease
+
+transition($transition)
+  transition $transition
+
+transform($string)
+  transform $string
+
+scale($factor)
+  transform scale($factor)
+
+rotate($deg)
+  transform rotate($deg)
+
+skew($deg, $deg2)
+  transform skew($deg, $deg2)
+
+translate($x, $y0)
+  transform translate($x, $y)
+
+translate3d($x, $y = 0, $z = 0)
+  transform translate3d($x, $y, $z)
+
+perspective($value = 1000)
+  perspective $value
+
+transform-origin($xcenter, $ycenter)
+  transform-origin $x $y
