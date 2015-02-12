@@ -41,8 +41,8 @@ fmp new ./ --<CSS pre-processor> --<JS library>
 ```
 
 where:
-* **<CSS pre-processor>** can be one of: css / scss / less / stylus.
-* **<JS library>** can be one of: vanilla / jquery / angular / backbone.
+* **CSS pre-processor** can be one of: **css** / **scss** / **less** / **stylus**.
+* **JS library** can be one of: **vanilla** / **jquery** / **angular** / **backbone**.
 
 After few minutes all files will be copied in your project folder. To start preview server, just type
 
