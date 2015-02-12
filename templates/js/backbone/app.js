@@ -14,6 +14,6 @@ var APP = {};
     Bootstrap views
 ============================================== */
 
-(function() {
-    var topNavView = new APP.TopNavView();
-})();
+$(function() {
+    console.log('Hello from your Backbone application!');
+});

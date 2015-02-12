@@ -5,14 +5,7 @@ var path = require('path');
 var exec = require('child_process').exec;
 
 /* ==============================================
-    !!!WARNING!!!
-
-    In 1.1.* versions of module
-    there is only one option to make new project:
-    with stylus and backbone!
-
-    All other options will be added in
-    future releases
+    Get options from process.argv
 ============================================== */
 
 var action = process.argv[2];
@@ -39,7 +32,6 @@ switch (css) {
     case '--css': case '-c': css = 'css'; break;
     case '--stylus': case '-st': css = 'stylus'; break;
     case '--scss': case '-sc': css = 'scss'; break;
-    case '--sass': case '-sa': css = 'sass'; break;
     case '--less': case '-l': css = 'less'; break;
     default: css = 'css';
 }
@@ -74,7 +66,7 @@ var tasks = [
     { task: 'images',       from: 'images',        to: 'images' },
     { task: 'fonts',        from: 'fonts',         to: 'fonts'  },
     { task: 'bower.json',   from: 'bower.json',    to: ''       },
-    { task: 'gulpfile',     from: 'gulpfile.js',   to: ''       },
+    { task: 'gulpfile',     from: 'gulp/' + css,   to: ''       },
     { task: 'favicon',      from: 'favicon.png',   to: ''       },
     { task: 'package.json', from: 'package.json',  to: ''       }
 ];
@@ -83,11 +75,18 @@ var tasks = [
 var npmDeps = 'gulp fmp';
 
 // Bower dependencies (depends on js library user choice)
-var bowerDeps = {
+var bowerJSDeps = {
     vanilla:  '',
     jquery:   'jquery',
     angular:  'angular',
     backbone: 'underscore jquery backbone'
+};
+
+var bowerStylesDeps = {
+    css: 'normalize.css',
+    scss: '_normalize.scss',
+    less: 'normalize-less',
+    stylus: 'normalize.styl'
 };
 
 /* ==============================================
@@ -190,11 +189,9 @@ function installNPMDependencies() {
 ============================================== */
 
 function installBowerDependencies() {
-    var deps = bowerDeps[js];
-    if (deps === '') {
-        launchServer();
-        return;
-    }
+    var stylesDeps = bowerStylesDeps[css];
+    var jsDeps = bowerJSDeps[js];
+    var deps = stylesDeps + ' ' + jsDeps;
 
     console.log();
     console.log('~---------------------------~');
@@ -210,13 +207,26 @@ function installBowerDependencies() {
             console.log();
             console.log('~---------------------------~');
             console.log('Done! All dependencies were successfully installed.');
-            launchServer();
+            showSuccessInfo();
         }
     });
 }
 
 /* ==============================================
+    Success info
+============================================== */
+
+function showSuccessInfo() {
+    console.log();
+    console.log('Now you can launch preview server with `gulp` command. Happy coding!');
+}
+
+/* ==============================================
     Launch preview server
+
+    For now this method doesn't executes.
+    Server auto-launch can be added
+    in future releases as option.
 ============================================== */
 
 function launchServer() {

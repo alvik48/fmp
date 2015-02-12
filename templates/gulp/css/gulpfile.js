@@ -1,0 +1,3 @@
+require('fmp')({
+    css: 'css'
+});

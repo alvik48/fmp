@@ -5,5 +5,5 @@
 var APP = {};
 
 $(function() {
-    console.log('Hi there!');
+    console.log('Hello from your jQuery application!');
 });

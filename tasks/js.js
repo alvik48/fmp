@@ -4,20 +4,18 @@ var include = require('gulp-include');
 var sourcemaps = require('gulp-sourcemaps');
 
 /* ==============================================
-
+    JS
+    Include all required JS files to app.js;
+    Copy app.js file to destination folder
 ============================================== */
 
 module.exports = function(task, config) {
-
-    var src = config.paths.src.js + "/" + config.js.src.original;
-    var dest = config.paths.temp.js;
-
     gulp.task(task, function() {
-        gulp.src(src)
+        gulp.src('js/app.js')
             .pipe(sourcemaps.init())
             .pipe(include())
             .pipe(sourcemaps.write())
-            .pipe(gulp.dest(dest))
+            .pipe(gulp.dest('.tmp/js'))
             .pipe(reload({stream:true}));
     });
 };

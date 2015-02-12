@@ -2,20 +2,15 @@ var gulp = require('gulp');
 var reload = require('browser-sync').reload;
 
 /* ==============================================
-
+    Images
+    Copy images to destination folder
+    excluding sprite source files
 ============================================== */
 
 module.exports = function(task, config) {
-
-    var src = [
-        config.paths.src.images + '/**/*.*',
-        '!' + config.paths.src.images + '/' + config.images.plugins.sprite.src + '/**/*.*'
-    ];
-    var dest = config.paths.temp.images;
-
     gulp.task(task, function() {
-        gulp.src(src)
-            .pipe(gulp.dest(dest))
+        gulp.src(['images/**/*.*', '!images/sprite/*.*'])
+            .pipe(gulp.dest('.tmp/images'))
             .pipe(reload({stream: true}));
     });
 };

@@ -1,28 +1,43 @@
 var gulp = require('gulp');
 var reload = require('browser-sync').reload;
-var stylus = require('gulp-stylus');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 
-/* ==============================================
+var processor;
+var ext;
 
+/* ==============================================
+    Styles
+    Generate app.css from source files;
+    Copy app.css to destination folder
 ============================================== */
 
 module.exports = function(task, config) {
-
-    var src = config.paths.src.styles + '/' + config.styles.src.original;
-    var autoprefixrOpts = config.styles.plugins.autoprefixr;
-    var dest = config.paths.temp.styles;
-
-    if (config.styles.src.processor === 'stylus') {
-        gulp.task(task, function() {
-            gulp.src(src)
-                .pipe(sourcemaps.init())
-                .pipe(stylus())
-                .pipe(autoprefixer(autoprefixrOpts))
-                .pipe(sourcemaps.write())
-                .pipe(gulp.dest(dest))
-                .pipe(reload({stream:true}));
-        });
+    switch (config.css) {
+        case 'stylus':
+            ext = 'styl';
+            processor = require('gulp-stylus');
+            break;
+        case 'scss':
+            ext = 'scss';
+            processor = require('gulp-sass');
+            break;
+        case 'less':
+            ext = 'less';
+            processor = require('gulp-less');
+            break;
+        default:
+            ext = 'css';
+            processor = require('gulp-cssimport');
     }
+
+    gulp.task(task, function() {
+        gulp.src('styles/app.' + ext)
+            .pipe(sourcemaps.init())
+            .pipe(processor())
+            .pipe(autoprefixer(config.autoprefixr))
+            .pipe(sourcemaps.write())
+            .pipe(gulp.dest('.tmp/styles'))
+            .pipe(reload({stream:true}));
+    });
 };
