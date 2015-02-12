@@ -1,6 +1,6 @@
 {
   "name": "fmp",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Fast Markup - preconfigured node.js + gulp environment to automate routine markup tasks",
   "author": "Alexandr Kryuchkov <alvik48@gmail.com>",
   "private": false,
