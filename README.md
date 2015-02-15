@@ -11,7 +11,7 @@ Preconfigured **node.js + gulp** environment to automate routine markup tasks.
   * Ability to reuse blocks (eg, *header*, *footer*) using *ejs* template engine and include functions.
   * Automatic page reload on source files changes.
 * **CSS**:
-  * *Stylus* preprocessor.
+  * *Stylus* / *LESS* / *SCSS* preprocessors (as option).
   * *Autoprefixer* postprocessor.
   * *CSS* minifier.
   * *Source maps* generation.
